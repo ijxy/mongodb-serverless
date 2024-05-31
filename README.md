@@ -19,8 +19,11 @@ npm install mongodb-serverless
 
 ## Usage
 
-```ts
+```js
 import { getMongoClient } from "mongodb-serverless";
 
-const client = getMongoClient(process.env.MONGO_URI, { appName: "app" });
+export async function handler(event) {
+  const client = getMongoClient(process.env.MONGO_URI, { appName: "app" });
+  return await client.db().collection("docs").find({}).toArray();
+}
 ```
