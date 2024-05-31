@@ -1,0 +1,50 @@
+{
+  "name": "mongodb-serverless",
+  "version": "0.0.0",
+  "description": "Create MongoDB driver instances optimized for serverless environments",
+  "keywords": [
+    "mongodb",
+    "driver",
+    "serverless"
+  ],
+  "homepage": "https://github.com/jxdp/mongodb-serverless",
+  "bugs": {
+    "url": "https://github.com/jxdp/mongodb-serverless/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jxdp/mongodb-serverless.git"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "jxdp",
+    "url": "https://github.com/jxdp"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc --project tsconfig.build.json",
+    "lint": "eslint . --ext ts,js,json --fix",
+    "prepublishOnly": "npm run lint && npm run build && npm run test",
+    "test": "NODE_ENV=test node --import tsx --test **/*.test.ts"
+  },
+  "devDependencies": {
+    "@tsconfig/recommended": "^1.0.6",
+    "@tsconfig/strictest": "^2.0.5",
+    "@types/node": "^18",
+    "eslint": "^8",
+    "eslint-config-tip": "^1",
+    "mongodb-memory-server": "^9.3.0",
+    "tsx": "^4",
+    "typescript": "^5"
+  },
+  "peerDependencies": {
+    "mongodb": ">=4"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
